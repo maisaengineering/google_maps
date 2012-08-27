@@ -1,0 +1,39 @@
+<h1>Listing characters</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Gmaps</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @characters.each do |character| %>
+  <tr>
+    <td><%= character.name %></td>
+    <td><%= character.address %></td>
+    <td><%= character.latitude %></td>
+    <td><%= character.longitude %></td>
+    <td><%= character.gmaps %></td>
+    <td><%= link_to 'Show', character %></td>
+    <td><%= link_to 'Edit', edit_character_path(character) %></td>
+    <td><%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Character', new_character_path %>
+<%#= gmaps4rails(@json) %>
+<%= gmaps({
+       "circles"    => { "data" => '[
+			 {"lng": 78.4867, "lat": 17.385, "radius": 5000.000784806152880, "strokeColor": "#FF0000"},
+			]' 
+}
+     })
+ %>
