@@ -16,14 +16,22 @@
   <tr>
     <td><%= character.name %></td>
     <td><%= character.address %></td>
-    <td><%= character.latitude %></td>
-    <td><%= character.longitude %></td>
+    <td>
+    	<div id = "lat">
+	    	<%= character.latitude %>
+	    </div>	
+    </td>
+    <td>
+    	<div id = "lan">
+    		<%= character.longitude %>
+    	</div>	
+    </td>
     <td><%= character.gmaps %></td>
     <td><%= link_to 'Show', character %></td>
     <td><%= link_to 'Edit', edit_character_path(character) %></td>
     <td><%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
-<% end %>
+
 </table>
 
 <br />
@@ -32,8 +40,10 @@
 <%#= gmaps4rails(@json) %>
 <%= gmaps({
        "circles"    => { "data" => '[
-			 {"lng": 78.4867, "lat": 17.385, "radius": 5000.000784806152880, "strokeColor": "#FF0000"},
+			 {"lng": character.longitude, "lat": character.latitude, "radius": 5000.000784806152880, "strokeColor": "#FF0000"},
 			]' 
 }
      })
  %>
+ 
+<% end %> 
