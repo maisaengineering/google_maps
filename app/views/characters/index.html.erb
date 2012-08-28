@@ -32,18 +32,12 @@
     <td><%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 
+  
+ <% end %> 
 </table>
-
+<div id="location">
+<%= gmaps4rails(@json) %>
+</div>
 <br />
 
 <%= link_to 'New Character', new_character_path %>
-<%#= gmaps4rails(@json) %>
-<%= gmaps({
-       "circles"    => { "data" => '[
-			 {"lng": character.longitude, "lat": character.latitude, "radius": 5000.000784806152880, "strokeColor": "#FF0000"},
-			]' 
-}
-     })
- %>
- 
-<% end %> 
